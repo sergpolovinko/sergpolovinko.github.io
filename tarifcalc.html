@@ -27,45 +27,108 @@
             color: lightgray;
         }
 
+        h3 {
+            font-size: 1rem;
+            color: lightgray;
+        }
+
         .section {
             margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .benefits {
+            margin-left: auto;
+            margin-right: auto;
+            width: intrinsic; /* Safari/WebKit uses a non-standard name */
+            width: -moz-max-content; /* Firefox/Gecko */
+            width: -webkit-max-content; /* Chrome */
+            width: max-content;
+        }
+
+        .outlay ol {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted lightgray;
+        }
+
+        .category {
+            color: lightgray;
         }
     </style>
 </head>
 
 <body class="mx-lg-5 px-lg-5 mx-1">
-    <noscript>Вибачте, ваш браузер не підтримує JavaScript!</noscript>
-    <center>
+    <noscript>
+        <div class="section">Вибачте, ваш браузер не підтримує JavaScript</div>
+    </noscript>
+
+    <div class="section">
+        <h1>Тариф старый:новый</h1>
+        <label for="apartmentId">Номер квартири</label>
+        <input type="number" id="apartmentId" name="apartmentId" min="1" max="231" oninput="updateTariff()">
+    </div>
+
+    <div id="calculation" style="display:none">
+        <div class="section">
+            <h2>Обслуговування</h2>
+            <div> <span id="serviceRateOld">100</span> грн/м<sup>2</sup> : <span id="serviceRateNew">90</span> грн/м<sup>2</sup></div>
+            <div><span id="serviceOld">100</span> грн : <span id="serviceNew">90</span> грн</div>
+        </div>
 
         <div class="section">
-            <h1>Тариф старый:новый</h1>
-            <label for="apartmentId">Номер квартири</label>
-            <input type="number" id="apartmentId" name="apartmentId" min="1" max="231" oninput="updateTariff()">
-
-            <!--<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-right" viewBox="0 0 16 16">
-                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
-            </svg>-->
+            <h2>Охорона</h2>
+            <div><span id="securityOld">100</span> грн : <span id="securityNew">90</span> грн</div>
         </div>
 
-        <div id="calculation" style="display:none">
-            <div class="section">
-                <h2>Обслуговування</h2>
-                <div> <span id="serviceRateOld">100</span> грн/м<sup>2</sup> : <span id="serviceRateNew">90</span> грн/м<sup>2</sup></div>
-                <div><span id="serviceOld">100</span> грн : <span id="serviceNew">90</span> грн</div>
-            </div>
+        <div class="section">
+            <h2>Разом</h2>
+            <div><span id="totalOld">100</span> грн : <span id="totalNew">90</span> грн</div>
+        </div>
 
-            <div class="section">
-                <h2>Охорона</h2>
-                <div><span id="securityOld">100</span> грн : <span id="securityNew">90</span> грн</div>
-            </div>
-
-            <div class="section">
-                <h2>Разом</h2>
-                <div><span id="totalOld">100</span> грн : <span id="totalNew">90</span> грн</div>
+        <div class="section benefits">
+            <h2>Що я за це отримую?</h2>
+            <div class="text-left">
+                <ol>Охоронець в обох секціях замість одної як зараз.</ol>
+                <ol>Ремонтний фонд <span id="repairNew">90</span> грн щомісяця порівняно з <span>0</span> грн зараз.</ol>
+                <ol>Резервний фонд <span id="reserveNew">90</span> грн щомісяця на непередбачуваний ремонт проти <span>0</span> грн зараз.</ol>
             </div>
         </div>
-    </center>
 
+        <div class="section outlay">
+            <h2>Щомісячний кошторис</h2>
+            <div class="text-left">
+                <ol><div class="category">Витрати на управління</div></ol>
+                <ol>Фонд оплати праці з податками та обов'язковими зборами (ЗП голови правління ) <div>8000</div></ol>
+                <ol>Послуги керуючого будинком <div>18000</div></ol>
+                <ol>Підготовка та проведення Загальних зборів (поштові витрати, друк, оренда приміщення тощо) <div>700</div></ol>
+                <ol>Програмне забезпечення (ОСББ-365 або аналог) <div>400</div></ol>
+                <ol>Бухгалтерські послуги (ФОП) <div>8000</div></ol>
+                <ol>Юридичні послуги (нотаріальне засвідчення документів, консультаційні послуги під час укладення договорів, винагорода адвокатам за ведення судових справ) <div>1500</div></ol>
+                <ol>Витрати на банківське обслуговування, канцтовари <div>500</div></ol>
+                <ol>Витрати на обслуговування будинку і прибудинкової території </ol>
+                <ol>Диспетчеризація мереж водо-, тепло-, енергопостачання, каналізації, аварійна служба <div>20000</div></ol>
+                <ol>Технічне обслуговування ліфтів (у т.ч. диспетчеризація) <div>10000</div></ol>
+                <ol>Прибирання місць загального користування у будинку (поверхи з 4-го і вище - не рідше 2 разів на місяць, перший поверх - щоденно)  <div>15000</div></ol>
+                <ol>Прибирання двору, догляд за рослинами та інвентар <div>10000</div></ol>
+                <ol>Вивезення твердих побутових відходів <div>8000</div></ol>
+                <ol>Електроенергія для освітлення МЗК, ліфтів, насосів та іншого обладнання. Вода для прибирання, поливу та іншого. <div>30000</div></ol>
+                <ol>Дератизація/дезінсекція (щомісячні профілактичні роботи, виклик спеціалістів по необхідності) <div>400</div></ol>
+                <ol>Обслуговування протипожежної сигналізації <div>8300</div></ol>
+                <ol>Обслуговування димовентканалів (перевірка, чистка по необхідності) <div>200</div></ol>
+                <ol>Господарські витрати (сіль, добрива, фарба, лампи, інвентар тощо) <div>800</div></ol>
+                <ol><div class="category">Непередбачувані витрати</div></ol>
+                <ol>Поточний ремонт та інші непередбачувані витрати <div>1794</div></ol>
+                <ol><div class="category">Фонди</div></ol>
+                <ol>Ремонтний фонд <div>3829</div></ol>
+                <ol>Резервний фонд <div>6636</div></ol>
+                <ol><div class="category">Охорона</div></ol>
+                <ol>Послуги охорони <div>52600</div></ol>
+                <ol>Диспетчеризація <div>615</div></ol>
+                <ol>Обслуговування СКД та відеоспостереження <div>8000</div></ol>
+            </div>
+        </div>
+    </div>
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
@@ -316,6 +379,8 @@
                 let securityOld = 150;
                 let securityNew = 265;
                 let area = areas[apartment];
+                let repairNew = 3829.452;
+                let reserveNew = 6635.864;
 
                 $('#serviceRateOld').text(oldRate);
                 $('#serviceRateNew').text(newRate);
@@ -325,6 +390,10 @@
                 $('#securityNew').text(securityNew);
                 $('#totalOld').text(Math.ceil(oldRate * area + securityOld));
                 $('#totalNew').text(Math.ceil(newRate * area + securityNew));
+
+                $('#repairNew').text(Math.ceil(repairNew));
+                $('#reserveNew').text(Math.ceil(reserveNew));
+
                 $('#calculation').show();
             }
         }
